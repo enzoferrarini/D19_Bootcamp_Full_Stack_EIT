@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>Desafío N° 19</title>
+</head>
+<body>     
+    <nav class="navbar navbar-expand pe-5 ps-5">       
+        <div class="flex__container w-100">
+            <div class="d-flex flex-column align-items-center">           
+                <img src="./img/logo_electronic.png" class="w-200p" alt="Logo EIT">      
+            </div>
+            <div class="fs-4 text-secondary text-end w-30">
+                Todo lo que buscas <br><strong>en un solo lugar </strong>
+            </div>
+        </div>        
+    </nav>    
+    <main>
+        <div class="bd-example">    
+            <div class="container-fluid d-flex flex-row justify-content-center">     
+                <div class="btn-group justify-content-center w-100" role="group">
+                    <input id="idSearchTitle" class="form-control w-50" type="text" placeholder="Ingrese Artículo a buscar...">            
+                    <button type="button" class="btn btn-primary fs-6 btn__search" onclick="searchProduct()">
+                        <i class="fas fa-search"></i> Buscar
+                    </button>
+                </div>
+            </div>  
+            <hr>
+            <div id="myProducttContainer"> 
+            </div>            
+        </div>
+        <div class="bd-example p-2">       
+            <div class="text-secondary  text-center">Desarrollado con <strong>Bootstrap 5</strong> - FERRARINI ENZO</div>
+        </div>
+    </main>  
+    
+    <!-- TOAST -->
+    <div class="toast-container position-fixed top-0 end-0 p-3" id="toastPlacement">
+        <div class="toast fade hide"  data-bs-autohide="true" data-bs-delay="5000" id="myToast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="darkblue"></rect></svg>
+            
+                <strong class="me-auto">Mensaje</strong>
+                <small class="text-muted">ahora</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body text-start" id="idMsgToast">
+            </div>
+        </div>
+    </div>
+    <!-- MODAL -->
+    <div class="modal fade" id="idModal" tabindex="-1" aria-labelledby="idModalLabel">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title " id="idModalLabel">Consideraciones</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>- Los artículos se encunetran almacenados en un Json Server <strong>https://my-json-server.typicode.com/</strong> 
+                    que recoge infomarción de unas Base de Datos generada en GitHub. Las busquedas ejecutan API FETCH.
+                </p>
+                <p>- Tener en cuenta que para realizar busquedas a través <strong>Json Server</strong>, la busqueda debe ser exacta
+                    caso contrario no devolverá resultado alguno. Esta es una limitación del tipo de SERVER utilizado. Para evitar
+                    esta situación, y si bien no la forma más eficiente, en una primera instancia se descargan todos los productos, y
+                    las búsquedas se realizan sobre un array local obtenido desde:<br> 
+                    <a href="https://my-json-server.typicode.com/enzoferrarini/jsonFiles/electro" target="_blank"><strong>https://my-json-server.typicode.com/enzoferrarini/jsonFiles/electro</strong></a>
+                </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-info" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="./js/products.js"></script>  
+    <script src="./js/main.js"></script>
+</body>
+</html>
